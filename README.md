@@ -31,5 +31,3 @@ npm run dev
 ```sh
 npm run build
 ```
-# fashion-fushion
-# fashion-fushion
