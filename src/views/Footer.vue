@@ -152,6 +152,11 @@
   .footer-content {
     padding: 0 5%;
   }
+  .footer-contact h1{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   .footer-bottom {
     padding: 0 5%;

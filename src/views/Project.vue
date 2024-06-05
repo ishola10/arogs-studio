@@ -18,7 +18,7 @@
 
     <div class="project-container">
       <h1>Projects</h1>
-      <p class="pl">checkout our latest projects</p>
+      <p class="pl">check out our latest projects</p>
       <div v-for="(project, index) in projects" :key="index" class="project">
         <img
           class="project-image"

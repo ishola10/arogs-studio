@@ -200,4 +200,13 @@ button[type="submit"]:hover {
   color: #333;
   margin: 0;
 }
+@media (max-width: 768px) {
+  .contact-banner h1{
+    font-size: 3rem; 
+  }
+  .contact-banner p{
+    font-size: 1rem; 
+  }
+  
+}
 </style>
