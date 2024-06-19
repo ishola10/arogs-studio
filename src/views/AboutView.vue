@@ -35,12 +35,13 @@
         </div>
 
         <div class="fr">
+         
           <div>
-            <img
-              src="../assets/images/Arogs-studio.png"
-              alt="business-people"
-            />
-          </div>
+           <img
+             src="../assets/images/Arogs-studio.png"
+             alt="business-people"
+           />
+         </div>
           <div>
             <h1>Our Philosophy</h1>
 
@@ -171,6 +172,7 @@ function changeBackground() {
 <style>
 .ab-all{
   width: 100%;
+  overflow: hidden;
 }
 .about-banner {
   text-align: left;
@@ -216,8 +218,9 @@ p {
 }
 
 .about-text img {
-  width: 90%;
-  height: 60vh;
+  width: 100%;
+  /* height: 60vh; */
+  height: auto;
   border-radius: 10px;
 }
 
@@ -331,8 +334,7 @@ p {
 
   .about-text p {
     font-size: 1rem; 
-  }
-
+  } 
   .services {
     padding: 20px; 
   }

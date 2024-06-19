@@ -36,10 +36,7 @@
             <img src="../assets/images/icons8-linkedin-48.png" alt="linkedin" />
           </a>
           <a href="https://www.instagram.com">
-            <img
-              src="../assets/images/icons8-instagram-48.png"
-              alt="instagram"
-            />
+            <img src="../assets/images/icons8-instagram-48.png" alt="instagram" />
           </a>
         </div>
         <div class="footer-privacy">
@@ -50,9 +47,8 @@
         <div class="footer-date">
           <p>
             &copy; 2024 ARC AROGS STUDIO | WEBSITE BY
-            <a href="https://badmusmuhammed.netlify.app/" style="color: gray; text-decoration: underline;" target="_blank"
-              >Muhammed</a
-            >
+            <a href="https://badmusmuhammed.netlify.app/" style="color: gray; text-decoration: underline;"
+              target="_blank">Muhammed</a>
           </p>
         </div>
       </div>
@@ -101,6 +97,11 @@
 .footer-contact {
   flex: 1;
 }
+.footer-contact h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .footer-bottom {
   display: flex;
@@ -138,46 +139,34 @@
   text-decoration: none;
 }
 
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-  }
-}
 
 @media (max-width: 768px) {
   .footer-content {
     padding: 0 5%;
+    flex-direction: column;
+  }
+
+  .footer-contact h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .footer-bottom {
     padding: 0 5%;
+    flex-direction: column;
   }
-}
 
-@media (max-width: 768px) {
   .footer-social {
     margin-bottom: 1rem;
   }
-}
-
-@media (max-width: 768px) {
-  .footer-privacy {
+.footer-privacy {
     margin-bottom: 1rem;
   }
-}
-
-@media (max-width: 768px) {
-  .footer-date {
+.footer-date {
     text-align: center;
   }
-}
-
-@media (max-width: 768px) {
-  .footer-date {
+.footer-date {
     margin-bottom: 1rem;
   }
 }
