@@ -170,6 +170,11 @@ function changeBackground() {
 </script>
 
 <style>
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .ab-all{
   width: 100%;
   overflow: hidden;
@@ -292,6 +297,9 @@ p {
     padding: 0;
     margin: 0;
   }
+  .about-banner {
+    height: 50vh;
+  }
   .about-banner h1,
   .about-banner p {
     margin: 0 20px; 
@@ -302,7 +310,7 @@ p {
   }
 
   .about-banner p {
-    font-size: 1rem; 
+    font-size: 1.2rem; 
   }
 
   .about-content {

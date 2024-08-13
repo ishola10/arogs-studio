@@ -14,8 +14,15 @@
         </div>
         <div class="social-header">
           <div>
-            <a href="http://linkedin.com/in/samson-arogunmatidi-3666a3121" target="_blank" rel="noopener noreferrer">
-              <img src="../assets/images/icons8-linkedin-50.png" alt="LinkedIn" />
+            <a
+              href="http://linkedin.com/in/samson-arogunmatidi-3666a3121"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="../assets/images/icons8-linkedin-50.png"
+                alt="LinkedIn"
+              />
             </a>
           </div>
           <hr />
@@ -33,7 +40,12 @@
         </div>
       </div>
 
-      <img class="menu-toggle" @click="toggleMenu" src="../assets/images/icons8-menu-50.png" alt="menu" />
+      <img
+        class="menu-toggle"
+        @click="toggleMenu"
+        src="../assets/images/icons8-menu-50.png"
+        alt="menu"
+      />
 
       <!-- <div class="social-header">
         <div>
@@ -82,7 +94,7 @@ const toggleMenu = () => {
   height: 80px;
   padding: 0 60px;
 }
-.navbar-container{
+.navbar-container {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -103,7 +115,7 @@ const toggleMenu = () => {
 .navbar .links a.active {
   color: var(--color-text);
 }
-.links{
+.links {
   width: 70%;
   display: flex;
   justify-content: space-between;
@@ -146,63 +158,12 @@ const toggleMenu = () => {
   border: 1px solid var(--color-heading);
 }
 
-/* Media Query for Mobile Devices */
-/* @media screen and (max-width: 768px) {
-
-  .navbar-container {
-    flex-direction: column;
-    padding: 20px;
-    gap: 20px; 
-  }
- 
-
-  .navbar-container div a {
-    font-size: 16px;
-  }
-
-  .navbar-container div {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .links {
-    display: none;
-  }
-
-  .navbar .links a {
-    font-size: 16px;
-  }
-
-  .links a {
-    font-size: 16px;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .navbar img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .social-header div img {
-    width: 20px;
-    height: 20px;
-  }
-
-  .social-header hr {
-    display: none;
-  }
-} */
-
 @media screen and (max-width: 1024px) {
-  .navbar{
+  .navbar {
     padding: 15px;
-    
   }
   .navbar-container {
-   align-items: start;
+    align-items: start;
     gap: 20px;
   }
 
@@ -211,21 +172,20 @@ const toggleMenu = () => {
   }
 
   .links {
-    width: 80%;
+    width: 84%;
     align-items: center;
+    margin-left: -20%;
   }
-  .nav-links{
-    gap: 10px
+  .nav-links {
+    gap: 10px;
   }
 
   .nav-links a {
     font-size: 18px;
   }
 
-
   .social-header {
     margin-top: 10px;
-    /* gap: 20px; */
   }
 
   .social-header div img {
@@ -238,7 +198,12 @@ const toggleMenu = () => {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
+  .navbar{
+    /* width: 105%;
+    margin-left: -3%;
+    margin-top: 0; */
+  }
   .navbar-brand a {
     font-size: 16px;
   }
@@ -247,12 +212,16 @@ const toggleMenu = () => {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 13%;
-    left: 23%;
+    top: 10%;
+    left: 20%;
     right: 0;
     background-color: rgba(34, 34, 59, 0.9);
     padding: 20px;
     z-index: 1;
+   width: 90%;
+
+    overflow-y: auto;
+    transition: all 0.3s ease;
   }
 
   .links.show {
@@ -276,7 +245,7 @@ const toggleMenu = () => {
     width: 30px;
     height: 30px;
   }
-  .social-header{
+  .social-header {
     margin-top: 25px;
     display: flex;
     gap: 60px;
@@ -291,8 +260,4 @@ const toggleMenu = () => {
     display: none;
   }
 }
-
-
-
 </style>
-

@@ -33,6 +33,11 @@ const router = useRouter();
 </script>
 
 <style scoped>
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .loading-indicator {
   position: fixed;
   top: 0;
@@ -46,4 +51,5 @@ const router = useRouter();
   font-size: 2rem;
   color: white;
 }
+
 </style>

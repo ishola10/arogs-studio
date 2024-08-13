@@ -1,5 +1,5 @@
 <template>
-  <div>
+  
     <div v-if="isLoading" class="loading-indicator">Loading...</div>
 
     <div v-else
@@ -67,12 +67,12 @@
     </div>
 
     <Footer />
-  </div>
+  
 </template>
 
 <script setup lang="ts">
 import Footer from "./Footer.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onBeforeUnmount } from "vue";
 import project1Image1 from "../assets/images/ajiro_aguri/ALAHAJI KANIMODO - 14 FLATS 3D.pdf - Adobe Acrobat Reader (64-bit) 4_29_2024 7_20_32 PM.png";
 import project1Image2 from "../assets/images/ajiro_aguri/PHOTO-2024-04-09-11-41-35 2.jpg";
 import project1Image3 from "../assets/images/ajiro_aguri/PHOTO-2024-04-09-11-41-35.jpg";
@@ -171,6 +171,22 @@ const navigate = (direction) => {
   }
 };
 
+const handleSwipe = (e) => {
+  const touch = e.changedTouches[0];
+  if (e.type === "touchstart") {
+    touchStartX.value = touch.clientX;
+  } else if (e.type === "touchend") {
+    const deltaX = touch.clientX - touchStartX.value;
+    if (deltaX > 50) {
+      navigate("prev");
+    } else if (deltaX < -50) {
+      navigate("next");
+    }
+  }
+};
+
+const touchStartX = ref(0);
+
 const backgrounds = [image1, image2, image3, image4];
 const currentBackground = ref<string>(image1);
 
@@ -210,6 +226,14 @@ onMounted(() => {
   setInterval(changeBackground, 3000);
   checkAllImagesLoaded();
   lazyLoadImages();
+
+  document.addEventListener("touchstart", handleSwipe);
+  document.addEventListener("touchend", handleSwipe);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener("touchstart", handleSwipe);
+  document.removeEventListener("touchend", handleSwipe);
 });
 </script>
 
@@ -395,5 +419,46 @@ onMounted(() => {
   align-items: center;
   font-size: 2rem;
   color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .project {
+    flex-direction: column;
+  }
+
+  .project img.project-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+    border-right: none;
+  }
+
+  .project-container{
+    padding: 15px;
+  }
+
+  .project-content h1 {
+    margin-left: 2.5%;
+    width: 50%;
+    font-size: 1.1rem;
+  }
+  .project-content p {
+    margin-left: 2.5%;
+    font-size: 0.9rem;
+  }
+  .image-slider {
+    max-width: 90%;
+    height: 50vh;
+    justify-content: center;
+   margin-top: -50%;
+   margin-bottom: 10%;
+  }
+
+  .nav-btn {
+    font-size: 20px;
+    display: none;
+  }
+
+
 }
 </style>

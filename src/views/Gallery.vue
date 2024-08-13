@@ -1,48 +1,49 @@
 <template>
-  <div>
-    <div v-if="!isImagesLoaded" class="loading-indicator">Loading...</div>
-    <div v-else class="gallery-container">
-      <div class="gallery-banner" :style="{ backgroundImage: 'url(' + currentBackground + ')' }">
-        <div>
-          <h1>GALLERY</h1>
-          <p>
-            A selection of our favourite designs created with love and passion
-            by Arogs Studio.
-          </p>
-        </div>
-      </div>
-
-      <div class="gallery-images">
-        <h3>OUR WORK</h3>
-        <h1>PROJECT GALLERY</h1>
-
-        <div class="images">
-          <img src="../assets/images/image-003.jpg" alt="img 1" />
-          <img src="../assets/images/image-004.jpg" alt="img 2" />
-          <img src="../assets/images/image-005.jpg" alt="img 3" />
-          <img src="../assets/images/image-007.jpg" alt="img 5" />
-          <img src="../assets/images/image-008.jpg" alt="img 6" />
-          <img src="../assets/images/image-009.jpg" alt="img 7" />
-          <img src="../assets/images/image-010.jpg" alt="img 8" />
-          <img src="../assets/images/_..2.png" alt="img 9" />
-          <img src="../assets/images/_.3.png" alt="img 10" />
-          <img src="../assets/images/1st floor.png" alt="img 11" />
-          <img src="../assets/images/t.1.png" alt="img 12" />
-          <img src="../assets/images/T.2.png" alt="img 13" />
-          <img src="../assets/images/t.3.png" alt="img 14" />
-          <img src="../assets/images/V.1.png" alt="img 15" />
-          <img src="../assets/images/v.4.png" alt="img 16" />
-          <img src="../assets/images/v2.png" alt="img 17" />
-          <img src="../assets/images/IMG_0693.png" alt="img 18" />
-          <img src="../assets/images/IMG_2338.png" alt="img 19" />
-          <img src="../assets/images/IMG_2339.png" alt="img 20" />
-          <img src="../assets/images/IMG_2340.png" alt="img 21" />
-          <img src="../assets/images/1. Approach view.jpg" alt="" />
-        </div>
+  <div v-if="!isImagesLoaded" class="loading-indicator">Loading...</div>
+  <div v-else class="gallery-container">
+    <div
+      class="gallery-banner"
+      :style="{ backgroundImage: 'url(' + currentBackground + ')' }"
+    >
+      <div>
+        <h1>GALLERY</h1>
+        <p>
+          A selection of our favourite designs created with love and passion by
+          Arogs Studio.
+        </p>
       </div>
     </div>
-    <Footer />
+
+    <div class="gallery-images">
+      <h3>OUR WORK</h3>
+      <h1>PROJECT GALLERY</h1>
+
+      <div class="images">
+        <img src="../assets/images/image-003.jpg" alt="img 1" />
+        <img src="../assets/images/image-004.jpg" alt="img 2" />
+        <img src="../assets/images/image-005.jpg" alt="img 3" />
+        <img src="../assets/images/image-007.jpg" alt="img 5" />
+        <img src="../assets/images/image-008.jpg" alt="img 6" />
+        <img src="../assets/images/image-009.jpg" alt="img 7" />
+        <img src="../assets/images/image-010.jpg" alt="img 8" />
+        <img src="../assets/images/_..2.png" alt="img 9" />
+        <img src="../assets/images/_.3.png" alt="img 10" />
+        <img src="../assets/images/1st floor.png" alt="img 11" />
+        <img src="../assets/images/t.1.png" alt="img 12" />
+        <img src="../assets/images/T.2.png" alt="img 13" />
+        <img src="../assets/images/t.3.png" alt="img 14" />
+        <img src="../assets/images/V.1.png" alt="img 15" />
+        <img src="../assets/images/v.4.png" alt="img 16" />
+        <img src="../assets/images/v2.png" alt="img 17" />
+        <img src="../assets/images/IMG_0693.png" alt="img 18" />
+        <img src="../assets/images/IMG_2338.png" alt="img 19" />
+        <img src="../assets/images/IMG_2339.png" alt="img 20" />
+        <img src="../assets/images/IMG_2340.png" alt="img 21" />
+        <img src="../assets/images/1. Approach view.jpg" alt="" />
+      </div>
+    </div>
   </div>
+  <Footer />
 </template>
 
 <script setup lang="ts">
@@ -129,7 +130,6 @@ function checkAllImagesLoaded() {
   margin: 0;
 }
 
-
 .gallery-images {
   padding: 20px 60px;
   text-align: justify;
@@ -164,22 +164,35 @@ function checkAllImagesLoaded() {
   transform: scale(1.03);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
+  .gallery-banner {
+    height: 50vh;
+  }
+  .gallery-banner div {
+    padding: 20px 20px;
+  }
   .gallery-banner h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .gallery-banner p {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
-
+  .gallery-images {
+    padding: 20px 20px;
+  }
+ .gallery-images h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 0;
+    color: #6c6c6c;
+  }
   .gallery-images h1 {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    text-align: center;
   }
 
-  .images {
-    grid-template-columns: 1fr;
-    gap: 5px;
-  }
+  
 }
 </style>

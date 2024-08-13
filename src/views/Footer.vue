@@ -40,8 +40,8 @@
           </a>
         </div>
         <div class="footer-privacy">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
+          <a href="/">Privacy Policy</a>
+          <a href="/">Terms of Service</a>
         </div>
 
         <div class="footer-date">
@@ -69,7 +69,7 @@
   display: flex;
   gap: 2rem;
   align-items: center;
-  padding: 0 8%;
+  padding: 0 2%;
 }
 
 .footer-about {
@@ -107,7 +107,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
+  padding: 0 3%;
   margin-top: 2rem;
 }
 

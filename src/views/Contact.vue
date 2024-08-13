@@ -1,5 +1,5 @@
 <template>
-  <div>
+  
     <div class="contact-container">
       <div
         class="contact-banner"
@@ -62,7 +62,7 @@
       </div>
     </div>
     <Footer />
-  </div>
+ 
 </template>
 
 <script setup lang="ts">
@@ -201,12 +201,27 @@ button[type="submit"]:hover {
   margin: 0;
 }
 @media (max-width: 768px) {
+  .contact-banner{
+    height: 50vh;
+    margin-bottom: 2%;
+  }
+  .contact-banner h1, p{
+    margin-left: 0%;
+    padding-left: 2%;
+  }
   .contact-banner h1{
     font-size: 3rem; 
   }
   .contact-banner p{
-    font-size: 1rem; 
+    font-size: 1.2rem; 
   }
-  
+  .appreciation{
+    height: 50vh;
+    padding: 5%;
+  }
+  .appreciation h2{
+    font-size: 2rem; 
+    padding-top: 9%;
+  }
 }
 </style>
