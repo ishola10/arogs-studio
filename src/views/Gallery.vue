@@ -1,13 +1,14 @@
 <template>
-  <div v-if="!isImagesLoaded" class="loading-indicator">Loading...</div>
+  <Spinner v-if="!isImagesLoaded" />
+
   <div v-else class="gallery-container">
     <div
       class="gallery-banner"
       :style="{ backgroundImage: 'url(' + currentBackground + ')' }"
     >
       <div>
-        <h1>GALLERY</h1>
-        <p>
+        <h1 data-aos="fade-up" data-aos-delay="1300">GALLERY</h1>
+        <p data-aos="fade-up" data-aos-delay="1300">
           A selection of our favourite designs created with love and passion by
           Arogs Studio.
         </p>
@@ -49,6 +50,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import Footer from "./Footer.vue";
+import Spinner from "@/components/Spinner.vue";
 
 import image1 from "../assets/images/image-003.jpg";
 import image2 from "../assets/images/image-004.jpg";
@@ -60,24 +62,7 @@ const currentBackground = ref<string>(image1);
 
 const isImagesLoaded = ref(false);
 
-onMounted(() => {
-  setInterval(changeBackground, 3000);
-  checkAllImagesLoaded();
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        isImagesLoaded.value = true;
-      }
-    });
-  });
-
-  const images = document.querySelectorAll(".images img");
-  images.forEach((img) => {
-    observer.observe(img);
-  });
-});
-
+// Function to change the background image
 function changeBackground() {
   const currentIndex = backgrounds.indexOf(currentBackground.value);
   const nextIndex = (currentIndex + 1) % backgrounds.length;
@@ -85,13 +70,30 @@ function changeBackground() {
 }
 
 function checkAllImagesLoaded() {
-  const images = document.querySelectorAll(".images img");
-  let loadedCount = 0;
-  images.forEach((image) => {
-    if (image.complete) loadedCount++;
+  const images = Array.from(
+    document.querySelectorAll(".images img")
+  ) as HTMLImageElement[];
+  const loadPromises = images.map(
+    (img) =>
+      new Promise<void>((resolve) => {
+        if (img.complete) {
+          resolve();
+        } else {
+          (img as HTMLImageElement).onload = (img as HTMLImageElement).onerror =
+            () => resolve();
+        }
+      })
+  );
+
+  Promise.all(loadPromises).then(() => {
+    isImagesLoaded.value = true;
   });
-  if (loadedCount === images.length) isImagesLoaded.value = true;
 }
+
+onMounted(() => {
+  setInterval(changeBackground, 3000);
+  checkAllImagesLoaded();
+});
 </script>
 
 <style scoped>
@@ -100,7 +102,6 @@ function checkAllImagesLoaded() {
 }
 
 .gallery-banner {
-  /* background-image: url("../assets/images/image-003.jpg"); */
   background-size: cover;
   background-position: center;
   color: var(--color-background);
@@ -126,10 +127,9 @@ function checkAllImagesLoaded() {
 .gallery-banner p {
   font-size: 2rem;
   color: var(--color-heading);
-  padding: 0;
-  margin: 0;
 }
 
+/* Gallery images */
 .gallery-images {
   padding: 20px 60px;
   text-align: justify;
@@ -176,12 +176,13 @@ function checkAllImagesLoaded() {
   }
 
   .gallery-banner p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    margin-left: 0;
   }
   .gallery-images {
     padding: 20px 20px;
   }
- .gallery-images h3 {
+  .gallery-images h3 {
     font-size: 1.5rem;
     text-align: center;
     padding: 0;
@@ -192,7 +193,5 @@ function checkAllImagesLoaded() {
     font-weight: bolder;
     text-align: center;
   }
-
-  
 }
 </style>

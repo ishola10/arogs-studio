@@ -1,73 +1,82 @@
 <template>
-  
-    <div v-if="isLoading" class="loading-indicator">Loading...</div>
+  <div v-if="isLoading" class="loading-indicator">Loading...</div>
 
-    <div v-else
-      class="about-banner"
-      :style="{ backgroundImage: 'url(' + currentBackground + ')' }"
-    >
-      <div>
-        <h1>Projects</h1>
+  <div
+    v-else
+    class="about-banner"
+    :style="{ backgroundImage: 'url(' + currentBackground + ')' }"
+  >
+    <div>
+      <h1 data-aos="fade-up" data-aos-delay="1300">Projects</h1>
+      <p data-aos="fade-up" data-aos-delay="1300">
+        A collective of forward-thinking architects motivated by their passion
+        for designing cutting-edge, visually appealing, environmentally
+        sustainable, and cost-effective structures.
+      </p>
+    </div>
+  </div>
+
+  <div class="project-container">
+    <h1>Projects</h1>
+    <p class="pl">check out our latest projects</p>
+    <div v-for="(project, index) in projects" :key="index" class="project">
+      <img
+        class="project-image"
+        :src="project.images[0]"
+        alt="project-image"
+        @click="showProjectImages(index)"
+      />
+      <div class="project-content">
+        <h1>{{ project.title }}</h1>
         <p>
-          A collective of forward-thinking architects motivated by their passion
-          for designing cutting-edge, visually appealing, environmentally
-          sustainable, and cost-effective structures.
+          <strong>Location</strong> <br />
+          {{ project.location }}
+        </p>
+        <p>
+          <strong>Status</strong> <br />
+          {{ project.stat }}
+        </p>
+        <p>
+          <strong>Description</strong> <br />
+          {{ project.description }}
         </p>
       </div>
     </div>
+  </div>
 
-    <div class="project-container">
-      <h1>Projects</h1>
-      <p class="pl">check out our latest projects</p>
-      <div v-for="(project, index) in projects" :key="index" class="project">
-        <img
-          class="project-image"
-          :src="project.images[0]"
-          alt="project-image"
-          @click="showProjectImages(index)"
-        />
-        <div class="project-content">
-          <h1>{{ project.title }}</h1>
-          <p>
-            <strong>Location</strong> <br />
-            {{ project.location }}
-          </p>
-          <p>
-            <strong>Status</strong> <br />
-            {{ project.stat }}
-          </p>
-          <p>
-            <strong>Description</strong> <br />
-            {{ project.description }}
-          </p>
-        </div>
+  <div v-if="selectedProject !== null" class="project-images-modal">
+    <button class="close-btn" @click="closeProjectImages">
+      <img src="../assets/images/icons8-x-50.png" alt="close" />
+    </button>
+    <div class="image-slider">
+      <div class="image-wrapper">
+        <template
+          v-if="
+            projects[selectedProject].images[currentImageIndex].endsWith('.svg')
+          "
+        >
+          <object
+            :data="projects[selectedProject].images[currentImageIndex]"
+            type="image/svg+xml"
+          ></object>
+        </template>
+        <template v-else>
+          <img
+            :src="projects[selectedProject].images[currentImageIndex]"
+            alt="project-image"
+          />
+        </template>
       </div>
-    </div>
-
-    <div v-if="selectedProject !== null" class="project-images-modal">
-      <button class="close-btn" @click="closeProjectImages">
-       <img src="../assets/images/icons8-x-50.png" alt="close" >
+      <button class="nav-btn prev-btn" @click="navigate('prev')">
+        <img src="../assets/images/icons8-left-arrow-50.png" alt="right" />
       </button>
-      <div class="image-slider">
-        <div class="image-wrapper">
-          <template v-if="projects[selectedProject].images[currentImageIndex].endsWith('.svg')">
-            <object :data="projects[selectedProject].images[currentImageIndex]" type="image/svg+xml"></object>
-          </template>
-          <template v-else>
-            <img :src="projects[selectedProject].images[currentImageIndex]" alt="project-image">
-          </template>
-        </div>
-        <button class="nav-btn prev-btn" @click="navigate('prev')">
-          <img src="../assets/images/icons8-left-arrow-50.png" alt="right">
-        </button>
-        <button class="nav-btn next-btn" @click="navigate('next')">
-          <img src="../assets/images/icons8-right-arrow-50.png" alt="right">
-        </button>
-      </div>
+      <button class="nav-btn next-btn" @click="navigate('next')">
+        <img src="../assets/images/icons8-right-arrow-50.png" alt="right" />
+      </button>
     </div>
+  </div>
 
-    <Footer />
-  
+  <Footer />
 </template>
 
 <script setup lang="ts">
@@ -88,13 +97,13 @@ import Surulere2 from "../assets/images/Surulere/IMG_0105.png";
 import Surulere3 from "../assets/images/Surulere/IMG_0235.png";
 import Surulere4 from "../assets/images/Surulere/IMG_0236.png";
 import Surulere5 from "../assets/images/Surulere/IMG_0246.png";
-import Sub1 from "../assets/images/Collaborations as subcontractors/IMG_0157.png"
-import Sub2 from "../assets/images/Collaborations as subcontractors/IMG_3413.jpg"
-import Edo1 from "../assets/images/edo_state/1. Approach view.jpg"
-import Edo2 from "../assets/images/edo_state/2. back view.jpg"
-import Oyo1 from "../assets/images/oyo/oyo1.png"
-import Oyo2 from "../assets/images/oyo/oyo2.png"
-import Oyo3 from "../assets/images/oyo/oyo3.png"
+import Sub1 from "../assets/images/Collaborations as subcontractors/IMG_0157.png";
+import Sub2 from "../assets/images/Collaborations as subcontractors/IMG_3413.jpg";
+import Edo1 from "../assets/images/edo_state/1. Approach view.jpg";
+import Edo2 from "../assets/images/edo_state/2. back view.jpg";
+import Oyo1 from "../assets/images/oyo/oyo1.png";
+import Oyo2 from "../assets/images/oyo/oyo2.png";
+import Oyo3 from "../assets/images/oyo/oyo3.png";
 
 const projects = [
   {
@@ -146,11 +155,11 @@ const projects = [
   },
 ];
 
-const selectedProject = ref(null);
+const selectedProject = ref<number | null>(null);
 const currentImageIndex = ref(0);
 const isLoading = ref(true);
 
-const showProjectImages = (index) => {
+const showProjectImages = (index: number) => {
   console.log("Clicked on project:", index);
   selectedProject.value = index;
 };
@@ -159,8 +168,8 @@ const closeProjectImages = () => {
   selectedProject.value = null;
 };
 
-const navigate = (direction) => {
-  const project = projects[selectedProject.value];
+const navigate = (direction: "prev" | "next") => {
+  const project = projects[selectedProject.value as number];
   const totalImages = project.images.length;
 
   if (direction === "prev") {
@@ -171,7 +180,7 @@ const navigate = (direction) => {
   }
 };
 
-const handleSwipe = (e) => {
+const handleSwipe = (e: TouchEvent) => {
   const touch = e.changedTouches[0];
   if (e.type === "touchstart") {
     touchStartX.value = touch.clientX;
@@ -194,7 +203,7 @@ const checkAllImagesLoaded = () => {
   const images = document.querySelectorAll(".project-image img");
   let loadedCount = 0;
   images.forEach((image) => {
-    if (image.complete) loadedCount++;
+    if ((image as HTMLImageElement).complete) loadedCount++;
   });
   if (loadedCount === images.length) isLoading.value = false;
 };
@@ -207,16 +216,16 @@ const changeBackground = () => {
 
 const lazyLoadImages = () => {
   const images = document.querySelectorAll(".project-image img[data-src]");
-  images.forEach(img => {
+  images.forEach((img) => {
     observer.observe(img);
   });
 };
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const img = entry.target as HTMLImageElement;
-      img.src = img.dataset.src || '';
+      img.src = img.dataset.src || "";
       observer.unobserve(img);
     }
   });
@@ -355,17 +364,32 @@ onBeforeUnmount(() => {
 }
 
 .close-btn img {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 
 .image-slider {
   position: relative;
   max-width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-wrapper {
+  width: 100%;
+  max-width: 500px; /* limit max width for desktop view */
+  aspect-ratio: 1 / 1; /* make it a perfect square */
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the square without distortion */
 }
 
 .modal-image {
@@ -398,14 +422,12 @@ onBeforeUnmount(() => {
 }
 
 .prev-btn {
-  left: 20px; /* Adjust this value as needed */
+  left: 20px;
 }
 
 .next-btn {
   right: 20px;
 }
-
-
 
 .loading-indicator {
   position: fixed;
@@ -433,7 +455,7 @@ onBeforeUnmount(() => {
     border-right: none;
   }
 
-  .project-container{
+  .project-container {
     padding: 15px;
   }
 
@@ -447,18 +469,23 @@ onBeforeUnmount(() => {
     font-size: 0.9rem;
   }
   .image-slider {
-    max-width: 90%;
+    max-width: 100%;
     height: 50vh;
     justify-content: center;
-   margin-top: -50%;
-   margin-bottom: 10%;
+  }
+
+  .image-wrapper {
+    width: 80%;
+    height: 80vw;
   }
 
   .nav-btn {
-    font-size: 20px;
     display: none;
   }
 
-
+  .close-btn {
+    top: 10px;
+    right: 10px;
+  }
 }
 </style>

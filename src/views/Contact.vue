@@ -1,68 +1,62 @@
 <template>
-  
-    <div class="contact-container">
-      <div
-        class="contact-banner"
-        :style="{ backgroundImage: 'url(' + currentBackground + ')' }"
-      >
-        <div>
-          <h1>Contact Us</h1>
-          <p>
-            Ready to start a project? Have a vision you would like to discuss?
-            Get in touch with us.
-          </p>
-        </div>
-      </div>
-
-      <div class="contact-form">
-        <h1>Get in Touch</h1>
-        <form
-          class="form"
-          action="https://formspree.io/f/myyrlqyp"
-          method="POST"
-        >
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Your email"
-            />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Your message"
-            ></textarea>
-          </div>
-
-          <label for="">
-            <input type="checkbox" name="" id="" />
-
-            I verify that the above information is correct and consent to my
-            data being sent and stored on the website's external server
-          </label>
-          <button type="submit">Send</button>
-        </form>
-      </div>
-
-      <div class="appreciation">
-        <h2>Thank you for visiting our website</h2>
-        <p>
-          We appreciate your interest in our services. We will get back to you
-          as soon as possible.
+  <div class="contact-container">
+    <div
+      class="contact-banner"
+      :style="{ backgroundImage: 'url(' + currentBackground + ')' }"
+    >
+      <div>
+        <h1 data-aos="fade-up" data-aos-delay="1300">Contact Us</h1>
+        <p data-aos="fade-up" data-aos-delay="1300">
+          Ready to start a project? Have a vision you would like to discuss? Get
+          in touch with us.
         </p>
       </div>
     </div>
-    <Footer />
- 
+
+    <div class="contact-form">
+      <h1>Get in Touch</h1>
+      <form class="form" action="https://formspree.io/f/myyrlqyp" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your message"
+          ></textarea>
+        </div>
+
+        <label for="">
+          <input type="checkbox" name="" id="" />
+
+          I verify that the above information is correct and consent to my data
+          being sent and stored on the website's external server
+        </label>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <div class="appreciation">
+      <h2>Thank you for visiting our website</h2>
+      <p>
+        We appreciate your interest in our services. We will get back to you as
+        soon as possible.
+      </p>
+    </div>
+  </div>
+  <Footer />
 </template>
 
 <script setup lang="ts">
@@ -201,26 +195,27 @@ button[type="submit"]:hover {
   margin: 0;
 }
 @media (max-width: 768px) {
-  .contact-banner{
+  .contact-banner {
     height: 50vh;
     margin-bottom: 2%;
   }
-  .contact-banner h1, p{
+  .contact-banner h1,
+  p {
     margin-left: 0%;
-    padding-left: 2%;
+    padding-left: 6%;
   }
-  .contact-banner h1{
-    font-size: 3rem; 
+  .contact-banner h1 {
+    font-size: 3rem;
   }
-  .contact-banner p{
-    font-size: 1.2rem; 
+  .contact-banner p {
+    font-size: 1.2rem;
   }
-  .appreciation{
+  .appreciation {
     height: 50vh;
     padding: 5%;
   }
-  .appreciation h2{
-    font-size: 2rem; 
+  .appreciation h2 {
+    font-size: 2rem;
     padding-top: 9%;
   }
 }

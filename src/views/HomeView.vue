@@ -1,5 +1,7 @@
 <template>
   <div class="home-container">
+    <Spinner v-if="isLoading" />
+
     <div class="home-header">
       <div class="home-header-content">
         <h1 data-aos="fade-up" data-aos-delay="1300">ARC AROGS STUDIO</h1>
@@ -52,36 +54,35 @@
         <div class="about-container">
           <div data-aos="fade-up" data-aos-delay="100">
             <img src="../assets/images/1713729941472.jpeg" alt="owner" />
-            <p>
-              <strong
-                >Arogunmatidi Samson <br />
-                <em>Managing Architect</em></strong
-              >
-              <br />
-              <br />
-              Arogunmatidi Samson, Managing Architect, leads Arogs Studio as
-              both owner and chief architect. With a foundation in freelancing
-              since youth, he now spearheads collaborative efforts with skilled
-              architects to produce cutting-edge, contemporary projects.
-              Samson's distinct architectural vision and fervor for
-              technological advancement propel the studio's groundbreaking
-              endeavors.
+            <span>
+              <h1>Samson Arogunmatidi</h1>
 
-              <br />
-              <br />
+              <p><em>Managing Architect</em></p>
+              <p>
+                Arogunmatidi Samson, Managing Architect, leads Arogs Studio as
+                both owner and chief architect. With a foundation in freelancing
+                since youth, he now spearheads collaborative efforts with
+                skilled architects to produce cutting-edge, contemporary
+                projects. Samson's distinct architectural vision and fervor for
+                technological advancement propel the studio's groundbreaking
+                endeavors.
 
-              <strong>Experience:</strong> <br />
-              10 years in architectural design
-              <br />
-              <br />
+                <br />
+                <br />
 
-              <a
-                href="http:linkedin.com/in/samson-arogunmatidi-3666a3121"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Connect &#128075;</a
-              >
-            </p>
+                <strong>Experience:</strong> <br />
+                10 years in architectural design
+                <br />
+                <br />
+
+                <a
+                  href="http:linkedin.com/in/samson-arogunmatidi-3666a3121"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Connect &#128075;</a
+                >
+              </p>
+            </span>
           </div>
           <div data-aos="fade-up" data-aos-delay="100">
             <p>
@@ -95,7 +96,7 @@
               and creative thinking, striving to cultivate designs that are not
               just visually captivating but also ingeniously inventive.
             </p>
-            <video controls>
+            <video controls @loadeddata="checkAllAssetsLoaded">
               <source src="../assets/videos/vid.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
@@ -170,10 +171,10 @@
           <router-link to="/project" active-class="active"
             >Projects</router-link
           >
-          <!-- <a href="/project">Projects</a> -->
         </div>
       </div>
     </div>
+
     <div class="home-contact">
       <div data-aos="fade-up" data-aos-delay="300">
         <h1>Contact Us</h1>
@@ -193,26 +194,21 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import Footer from "./Footer.vue";
+import Spinner from "@/components/Spinner.vue";
 
-const isLoading = ref(false);
+const isLoading = ref(true);
 
-function checkAllImagesLoaded() {
-  const images = document.querySelectorAll("img");
-  let loadedCount = 0;
-  images.forEach((image) => {
-    if (image.complete) loadedCount++;
-  });
-  if (loadedCount === images.length) isLoading.value = false;
-}
+const checkAllAssetsLoaded = () => {
+  isLoading.value = false;
+};
 
 onMounted(() => {
-  isLoading.value = true;
-
-  window.addEventListener("load", () => {
-    checkAllImagesLoaded();
-  });
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 2000);
 });
 </script>
+
 <style scoped>
 @keyframes zoomInOut {
   0%,
@@ -667,7 +663,7 @@ video {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   .project-content h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bolder;
   }
 
