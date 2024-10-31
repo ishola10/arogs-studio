@@ -475,12 +475,19 @@ onBeforeUnmount(() => {
   }
 
   .image-wrapper {
-    width: 80%;
-    height: 80vw;
+    width: 92%;
+    height: 100vw;
+    margin-top: 10%;
   }
 
   .nav-btn {
-    display: none;
+    padding: 5px 10px;
+    font-size: 20px;
+  }
+
+  .nav-btn img{
+    width: 20px;
+    height: 20px;
   }
 
   .close-btn {
