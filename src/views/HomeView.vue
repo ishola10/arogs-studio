@@ -53,7 +53,7 @@
       <div class="about">
         <div class="about-container">
           <div data-aos="fade-up" data-aos-delay="100">
-            <img src="../assets/images/1713729941472.jpeg" alt="owner" />
+            <img src="../assets/images/samson.jpg" alt="owner" />
             <span>
               <h1>Samson Arogunmatidi</h1>
 

@@ -155,6 +155,12 @@ const projects = [
   },
 ];
 
+// onMounted(() => {
+//   const storedProjects = JSON.parse(localStorage.getItem("projects") || "[]");
+//   // Update the reactive projects array
+//   projects.value = storedProjects;
+// });
+
 const selectedProject = ref<number | null>(null);
 const currentImageIndex = ref(0);
 const isLoading = ref(true);
