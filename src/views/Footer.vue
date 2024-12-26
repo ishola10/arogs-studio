@@ -29,14 +29,25 @@
       </div>
       <div class="footer-bottom">
         <div class="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=61558823970501&mibextid=LQQJ4d">
+          <a
+            href="https://www.facebook.com/profile.php?id=61558823970501&mibextid=LQQJ4d"
+          >
             <img src="../assets/images/icons8-facebook-48.png" alt="facebook" />
           </a>
           <a href="http://linkedin.com/in/samson-arogunmatidi-3666a3121">
             <img src="../assets/images/icons8-linkedin-48.png" alt="linkedin" />
           </a>
           <a href="https://www.instagram.com">
-            <img src="../assets/images/icons8-instagram-48.png" alt="instagram" />
+            <img
+              src="../assets/images/icons8-instagram-48.png"
+              alt="instagram"
+            />
+          </a>
+          <a href="https:wa.me/2348166310462" target="_blank">
+            <img
+              src="../assets/images/icons8-whatsapp-48.png"
+              alt="instagram"
+            />
           </a>
         </div>
         <div class="footer-privacy">
@@ -47,8 +58,12 @@
         <div class="footer-date">
           <p>
             &copy; 2024 ARC AROGS STUDIO | WEBSITE BY
-            <a href="https://badmusmuhammed.netlify.app/" style="color: gray; text-decoration: underline;"
-              target="_blank">Muhammed</a>
+            <a
+              href="https://badmusmuhammed.netlify.app/"
+              style="color: gray; text-decoration: underline"
+              target="_blank"
+              >Muhammed</a
+            >
           </p>
         </div>
       </div>
@@ -97,7 +112,7 @@
 .footer-contact {
   flex: 1;
 }
-.footer-contact h1{
+.footer-contact h1 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +154,6 @@
   text-decoration: none;
 }
 
-
 @media (max-width: 768px) {
   .footer-content {
     padding: 0 5%;
@@ -160,13 +174,13 @@
   .footer-social {
     margin-bottom: 1rem;
   }
-.footer-privacy {
+  .footer-privacy {
     margin-bottom: 1rem;
   }
-.footer-date {
+  .footer-date {
     text-align: center;
   }
-.footer-date {
+  .footer-date {
     margin-bottom: 1rem;
   }
 }
