@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import Contact from '@/views/Contact.vue'
 import Gallery from '@/views/Gallery.vue'
 import Project from '@/views/Project.vue'
-import AddProject from '@/views/AddProject.vue'
+// import AddProject from '@/views/AddProject.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,11 +33,11 @@ const router = createRouter({
       name: 'project',
       component: Project
     },
-    {
-      path: '/add-project',
-      name: 'add-project',
-      component: AddProject
-    },
+    // {
+    //   path: '/add-project',
+    //   name: 'add-project',
+    //   component: AddProject
+    // },
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
