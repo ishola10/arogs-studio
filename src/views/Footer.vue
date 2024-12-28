@@ -9,13 +9,13 @@
         <div class="footer-links">
           <ul>
             <li>
-              <a href="/gallery">Projects</a>
+              <router-link to="/gallery">Gallery</router-link>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <router-link to="/contact">Contact</router-link>
             </li>
             <li>
-              <a href="/about">About</a>
+              <router-link to="/about">About</router-link>
             </li>
           </ul>
         </div>

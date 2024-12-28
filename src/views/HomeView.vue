@@ -183,7 +183,7 @@
           in touch with us.
         </p>
 
-        <a href="/contact">REACH OUT NOW</a>
+        <router-link to="/contact">Contact Us</router-link>
       </div>
     </div>
 
