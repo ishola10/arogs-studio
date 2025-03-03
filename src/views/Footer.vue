@@ -30,7 +30,7 @@
       <div class="footer-bottom">
         <div class="footer-social">
           <a
-            href="https://www.facebook.com/profile.php?id=61558823970501&mibextid=LQQJ4d"
+            href="https://www.facebook.com/share/1JuDZVwaXN/?mibextid=wwXIfr"
           >
             <img src="../assets/images/icons8-facebook-48.png" alt="facebook" />
           </a>
