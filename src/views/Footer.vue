@@ -46,7 +46,7 @@
           <a href="https://wa.me/2348166310462" target="_blank">
             <img
               src="../assets/images/icons8-whatsapp-48.png"
-              alt="instagram"
+              alt="whatsapp"
             />
           </a>
         </div>

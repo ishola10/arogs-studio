@@ -12,7 +12,7 @@
     </div>
 
     <div class="whats-app-floatin-icon">
-      <a href="https:wa.me/2348166310462" target="_blank">
+      <a href="https://wa.me/2348166310462" target="_blank">
         Let's chat &#128075;
       </a>
     </div>
